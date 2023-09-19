@@ -33,7 +33,7 @@ int main()
 
   // double x = ((double)ScreenH * (double)VideoH) / ((double)ScreenW * (double)VideoW);
 
-  string video_path = "D:\\Code\\video-to-ascii-cpp-main\\vid1.mp4";
+  string video_path = "C:\\Code\\Video-to-Ascii\\vid2.mp4";
   VideoCapture cap(video_path);
 
   double fps = cap.get(CAP_PROP_FPS);
@@ -50,13 +50,12 @@ int main()
   int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
   cout << frame_width << " " << frame_height << endl;
 
-  height = (width * frame_height / frame_width) * 0.1208;
+  height = (width * frame_height / frame_width) * 0.3472;
 
-  // 1010*457
-  // 2560*1440
+  // 260*421 Pscreen
+  // 1366*768 Screen
 
-  // 1010*1440/2560 = 55.23
-  // 55.23/457 = 0.1208
+  //((260/1366)*768)/421 = 0.3472
 
   Mat frame, gray_frame, resized_frame;
 
@@ -82,7 +81,7 @@ int main()
 
     system("cls"); // to clear the console
     cout << ascii_frame;
-    std::this_thread::sleep_for(std::chrono::milliseconds(frame_duration_ms)); // 影格暫停,From Chrono
+    std::this_thread::sleep_for(std::chrono::milliseconds(frame_duration_ms-1)); // 影格暫停,From Chrono
   }
   return 0;
 }
