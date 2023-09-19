@@ -33,7 +33,8 @@ int main()
 
   // double x = ((double)ScreenH * (double)VideoH) / ((double)ScreenW * (double)VideoW);
 
-  string video_path = "D:\\Code\\Video-to-Ascii\\vid2.mp4"; // For Desktop
+  // string video_path = "D:\\Code\\Video-to-Ascii\\vid2.mp4"; // For Desktop
+  string video_path = "C:\\Code\\Video-to-Ascii\\vid3.mp4"; // For Laptop
   VideoCapture cap(video_path);
 
   double fps = cap.get(CAP_PROP_FPS);
@@ -42,7 +43,7 @@ int main()
 
   int frame_duration_ms = 1000 / fps;
 
-  int width = 250;
+  int width = 140;
 
   int height = 50;
 
@@ -50,11 +51,11 @@ int main()
   int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
   cout << frame_width << " " << frame_height << endl;
 
-  // height = (width * frame_height / frame_width)*0.3472;  // Laptop
+  height = (width * frame_height / frame_width) * 0.3627; // Laptop
 
-  height = (width * frame_height / frame_width) * 0.4318; // Desktop
+  // height = (width * frame_height / frame_width) * 0.4318; // Desktop
 
-  /* Laptop : 260*421 Pscreen  1366*768 Screen    ((260/1366)*768)/421 = 0.3472
+  /* Laptop : 251*389 Pscreen  1366*768 Screen    ((251/1366)*768)/389 = 0.3627
 
    Desktop : 750*977 Pscreen    2560*1440 Screen  ((750/2560)*1440)/977 = 0.4318 */
 
