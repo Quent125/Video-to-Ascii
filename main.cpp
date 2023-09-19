@@ -33,7 +33,7 @@ int main()
 
   // double x = ((double)ScreenH * (double)VideoH) / ((double)ScreenW * (double)VideoW);
 
-  string video_path = "C:\\Code\\Video-to-Ascii\\vid2.mp4";
+  string video_path = "D:\\Code\\Video-to-Ascii\\vid2.mp4"; // For Desktop
   VideoCapture cap(video_path);
 
   double fps = cap.get(CAP_PROP_FPS);
@@ -50,12 +50,13 @@ int main()
   int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
   cout << frame_width << " " << frame_height << endl;
 
-  height = (width * frame_height / frame_width) * 0.3472;
+  // height = (width * frame_height / frame_width)*0.3472;  // Laptop
 
-  // 260*421 Pscreen
-  // 1366*768 Screen
+  height = (width * frame_height / frame_width) * 0.4318; // Desktop
 
-  //((260/1366)*768)/421 = 0.3472
+  /* Laptop : 260*421 Pscreen  1366*768 Screen    ((260/1366)*768)/421 = 0.3472
+
+   Desktop : 750*977 Pscreen    2560*1440 Screen  ((750/2560)*1440)/977 = 0.4318 */
 
   Mat frame, gray_frame, resized_frame;
 
@@ -81,7 +82,7 @@ int main()
 
     system("cls"); // to clear the console
     cout << ascii_frame;
-    std::this_thread::sleep_for(std::chrono::milliseconds(frame_duration_ms-1)); // 影格暫停,From Chrono
+    std::this_thread::sleep_for(std::chrono::milliseconds(frame_duration_ms )); // 影格暫停,From Chrono
   }
   return 0;
 }
